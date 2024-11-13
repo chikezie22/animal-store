@@ -9,7 +9,7 @@ function Home() {
   console.log(animals);
   return (
     <div className="grid">
-      <h1 className="text-[#D6CA8B]">HOME</h1>
+      <h1 className="text-[#D6CA8B]">All Animals</h1>
       {animals.map((animal) => (
         <AnimalCard animal={animal} key={animal.id} />
       ))}
