@@ -22,9 +22,9 @@ function AnimalCard({ animal }) {
   };
 
   return (
-    <div className="px-4 py-4 grid grid-rows-subgrid row-span-4 gap-2  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-auto">
+    <div className="px-4 py-4 grid grid-rows-subgrid row-span-4 gap-2  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-auto max-w-full">
       <img
-        className="rounded-t-lg object-cover w-full"
+        className="rounded-t-lg object-cover "
         src={animal.image}
         alt="animal-image"
         // onError={(e) => (e.target.outerHTML = "<p>Image not found</p>")}
