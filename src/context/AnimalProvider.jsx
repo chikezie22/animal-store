@@ -5,7 +5,7 @@ import cartReducer from "../reducers/Reducer";
 const AnimalContext = createContext();
 faker.seed(42);
 function AnimalProvider({ children }) {
-  const animal = Array.from({ length: 20 }).map(() => {
+  const animal = Array.from({ length: 30 }).map(() => {
     const animalType = faker.animal.type();
     const image = faker.image.urlLoremFlickr({
       category: animalType, // This works only if the category is supported
@@ -15,7 +15,7 @@ function AnimalProvider({ children }) {
     return {
       id: faker.string.uuid(),
       name: animalType,
-      price: faker.commerce.price(200, 400),
+      price: faker.commerce.price({ min: 400, max: 999 }),
       image: image,
     };
   });

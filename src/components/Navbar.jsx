@@ -3,14 +3,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function Navbar() {
   return (
-    <nav className="flex   justify-between items-center">
+    <nav className="flex   justify-between items-center w-">
       <div className="text-orange-400 font-mulish ~text-lg/2xl">AniWorld!</div>
 
-      <div className="relative ~min-w-40/60">
+      <div className="relative ~max-w-10/screen-md">
         <input
           type="text"
           placeholder="Search..."
-          className="w-full py-2 px-4 pr-10 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full ~py-1/2 ~px-2/4 pr-5 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
       <div className="relative">
