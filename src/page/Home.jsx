@@ -5,8 +5,7 @@ function Home() {
   const {
     state: { animals },
   } = useAnimal();
-  //   console.log(state);
-  console.log(animals);
+
   return (
     <div className="w-full">
       <h1 className="text-[#D6CA8B] ~text-sm/4xl ">All Animals</h1>

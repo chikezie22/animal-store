@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 
 function Navbar() {
   const [dropDown, setDropDown] = useState(true);
+  console.log(setDropDown);
   const {
     state: { cart },
   } = useAnimal();
@@ -51,7 +52,8 @@ function Navbar() {
         </div>
 
         <Dropdown
-          className={`absolute right-0 bg-black bg-opacity-30 text-white top-10 rounded-md ${
+          setDropDown={setDropDown}
+          className={`absolute right-0 bg-black bg-opacity-80 text-white top-10 rounded-[20px] ${
             dropDown ? "hidden" : ""
           }`}
         />

@@ -14,7 +14,7 @@ function AnimalProvider({ children }) {
     });
     return {
       id: faker.string.uuid(),
-      name: animalType,
+      name: animalType.charAt(0).toUpperCase() + animalType.slice(1),
       price: faker.commerce.price({ min: 400, max: 999 }),
       image: image,
     };
