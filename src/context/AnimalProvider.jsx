@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker";
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useReducer, useState } from "react";
 import cartReducer from "../reducers/Reducer";
 
 const AnimalContext = createContext();
@@ -24,9 +24,10 @@ function AnimalProvider({ children }) {
     animals: animal,
     cart: [],
   });
+  const [search, setSearched] = useState("");
 
   return (
-    <AnimalContext.Provider value={{ state, dispatch }}>
+    <AnimalContext.Provider value={{ state, dispatch, search, setSearched }}>
       {children}
     </AnimalContext.Provider>
   );

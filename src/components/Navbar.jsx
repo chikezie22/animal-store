@@ -6,9 +6,11 @@ import { useEffect, useRef, useState } from "react";
 
 function Navbar() {
   const [dropDown, setDropDown] = useState(true);
-  console.log(setDropDown);
+
   const {
     state: { cart },
+    search,
+    setSearched,
   } = useAnimal();
   const dropDownRef = useRef(null);
   useEffect(() => {
@@ -23,7 +25,7 @@ function Navbar() {
     return () => {
       document.removeEventListener("click", handleClick);
     };
-  }, []);
+  }, [dropDown]);
   return (
     <nav className="flex   justify-between items-center w-">
       <div className="text-orange-400 font-mulish ~text-lg/2xl">AniWorld!</div>
@@ -32,6 +34,10 @@ function Navbar() {
         <input
           type="text"
           placeholder="Search..."
+          value={search}
+          onChange={(e) => {
+            setSearched(e.target.value);
+          }}
           className="w-full ~py-1/2 ~px-2/4 pr-5 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>

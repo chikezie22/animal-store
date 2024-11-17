@@ -9,6 +9,16 @@ export default function cartReducer(state, action) {
         cart: state.cart.filter((animal) => animal.id !== action.payload.id),
       };
 
+    case "QUANTITY":
+      return {
+        ...state,
+        cart: state.cart.map((animal) =>
+          animal.id === action.payload.id
+            ? { ...animal, qty: action.qty }
+            : animal
+        ),
+      };
+
     default:
       return state;
   }

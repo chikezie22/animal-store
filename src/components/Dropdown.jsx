@@ -7,6 +7,7 @@ function Dropdown({ className, setDropDown }) {
   const navigate = useNavigate();
   const {
     state: { cart },
+    dispatch,
   } = useAnimal();
   console.log(cart);
   return (
@@ -39,6 +40,13 @@ function Dropdown({ className, setDropDown }) {
                   width: "25px",
                   height: "25px",
                   // color: "white",
+                }}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  dispatch({
+                    type: "REMOVE_FROM_CART",
+                    payload: animal,
+                  });
                 }}
               />
             </span>
