@@ -22,7 +22,7 @@ function AnimalCard({ animal }) {
   };
 
   return (
-    <div className="px-4 py-4 grid grid-rows-subgrid row-span-4 gap-2  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-auto max-w-full">
+    <div className="sm:px-4 sm:py-4 px-[2px] py-[2px] grid grid-rows-subgrid row-span-4 gap-2  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-auto max-w-full">
       <img
         className="rounded-t-lg object-cover "
         src={animal.image}
@@ -40,7 +40,7 @@ function AnimalCard({ animal }) {
       </p>
       <button
         onClick={handleCart}
-        className={` inline-flex items-center justify-self-start plac px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800  focus:outline-none  dark:bg-blue-600 dark:hover:bg-blue-700 ${
+        className={` inline-flex items-center justify-self-start plac sm:px-3 sm:py-2 px-[2px] py-[2px] text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800  focus:outline-none  dark:bg-blue-600 dark:hover:bg-blue-700 ${
           inCart
             ? "bg-red-700 hover:bg-red-800 dark:bg-red-600 dark:hover:bg-red-700"
             : ""

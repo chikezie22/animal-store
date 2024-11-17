@@ -1,7 +1,28 @@
 import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useAnimal } from "../context/AnimalProvider";
+import Dropdown from "./Dropdown";
+import { useEffect, useRef, useState } from "react";
 
 function Navbar() {
+  const [dropDown, setDropDown] = useState(true);
+  const {
+    state: { cart },
+  } = useAnimal();
+  const dropDownRef = useRef(null);
+  useEffect(() => {
+    const handleClick = (event) => {
+      // event.preventDefault();
+      event.stopPropagation();
+      if (dropDownRef.current && !dropDownRef.current.contains(event.target)) {
+        setDropDown(true);
+      }
+    };
+    document.addEventListener("click", handleClick);
+    return () => {
+      document.removeEventListener("click", handleClick);
+    };
+  }, []);
   return (
     <nav className="flex   justify-between items-center w-">
       <div className="text-orange-400 font-mulish ~text-lg/2xl">AniWorld!</div>
@@ -13,8 +34,10 @@ function Navbar() {
           className="w-full ~py-1/2 ~px-2/4 pr-5 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
-      <div className="relative">
+      <div className="relative " ref={dropDownRef}>
         <FontAwesomeIcon
+          onClick={() => setDropDown((prev) => !prev)}
+          className="cursor-pointer"
           icon={faBagShopping}
           style={{
             width: "25px",
@@ -23,14 +46,15 @@ function Navbar() {
           }}
         />
 
-        <div
-          className="absolute top-0 right-0 bg-yellow-500 text-black rounded-full w-5 h-5 text-xs flex items-center justify-center font-bold"
-          style={{
-            transform: "translate(50%, -50%)", // Position the badge outside the corner
-          }}
-        >
-          3
+        <div className="absolute top-[-5px] right-[-10px] bg-yellow-500 text-black rounded-full w-5 h-5 text-xs flex items-center justify-center font-bold">
+          {cart.length || 0}
         </div>
+
+        <Dropdown
+          className={`absolute right-0 bg-black bg-opacity-30 text-white top-10 rounded-md ${
+            dropDown ? "hidden" : ""
+          }`}
+        />
       </div>
     </nav>
   );

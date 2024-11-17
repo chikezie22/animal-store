@@ -7,7 +7,7 @@ function PageLayout() {
   return (
     <div className="bg-[#191C2D] rounded-md ~p-2/4">
       <Navbar />
-      <main className="p-4">
+      <main className="sm:p-4">
         <Outlet />
       </main>
       <Footer />
