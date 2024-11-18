@@ -30,7 +30,7 @@
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   padding: 2rem 2rem;
   background-color: #a18770;
   min-height: 100dvh;
