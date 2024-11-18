@@ -59,7 +59,7 @@ function Navbar() {
 
         <Dropdown
           setDropDown={setDropDown}
-          className={`absolute right-0 bg-black bg-opacity-80 text-white top-10 rounded-[20px] ${
+          className={`absolute right-0 bg-black sm:bg-opacity-80 text-white top-10 rounded-[20px] ${
             dropDown ? "hidden" : ""
           }`}
         />

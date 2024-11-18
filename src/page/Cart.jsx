@@ -14,13 +14,13 @@ function Cart() {
   }, 0);
   console.log(total);
   return (
-    <section className="flex justify-between">
-      <div className={` flex-1  flex flex-col justify-start px-3 py-[10px]`}>
+    <section className="flex flex-col justify-between md:flex-row gap-2">
+      <div className={` flex-1  flex flex-col justify-start px-3 py-[10px] `}>
         <div className="grid w-full gap-4 p-1">
           {cart.map((animal) => (
             <span
               key={animal.id}
-              className="grid grid-cols-5 place-items-center bg-[#A18770] bg-opacity-60 rounded-[10px] p-4"
+              className="grid grid-cols-4 lg:grid-cols-5 place-items-center bg-[#A18770] bg-opacity-60 rounded-[10px] p-4"
             >
               <img
                 src={animal.image}
@@ -28,7 +28,7 @@ function Cart() {
                 className="rounded-full object-cover w-20 aspect-square scale-110 transition-all duration-300 hover:scale-100"
               />
 
-              <p className="~text-base/xl font-semibold justify-self-start">
+              <p className="~text-base/xl font-semibold  justify-self-start hidden lg:block">
                 {animal.name}
               </p>
               <p className="text-base font-normal">
@@ -56,12 +56,12 @@ function Cart() {
 
               <FontAwesomeIcon
                 icon={faTrash}
-                className="cursor-pointer text-red-600 hover:text-red-700"
-                style={{
-                  width: "25px",
-                  height: "25px",
-                  // color: "white",
-                }}
+                className="cursor-pointer text-red-600 hover:text-red-700 w-4 h-4 md:w-[25px] sm:h-[25px]"
+                // style={{
+                //   width: "25px",
+                //   height: "25px",
+                //   color: "white",
+                // }}
                 onClick={(e) => {
                   e.stopPropagation();
                   dispatch({
@@ -82,6 +82,10 @@ function Cart() {
       </div>
       <div className="bg-white px-4 py-[10px] grid content-start gap-3 rounded-md">
         <h2 className="font-bold text-lg">Subtotal (2) Items</h2>
+        <h3 className="font-normal text-base sm:hidden block">
+          {cart.map((animal) => animal.name).join(", ")}
+        </h3>
+
         <h3 className="font-semibold text-base">
           Total &#x20a6; {Math.floor(total)}
         </h3>

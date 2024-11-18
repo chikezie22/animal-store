@@ -12,7 +12,7 @@ function Dropdown({ className, setDropDown }) {
   console.log(cart);
   return (
     <div
-      className={`${className} sm:min-w-[21rem] w-[300px] flex justify-start px-3 py-[10px]`}
+      className={`${className} z-10 sm:min-w-[21rem] w-[300px] flex justify-start px-3 py-[10px]`}
     >
       {cart.length > 0 ? (
         <div className="flex flex-col w-full gap-4 p-1">
