@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useAnimal } from "../context/AnimalProvider";
 import Dropdown from "./Dropdown";
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const [dropDown, setDropDown] = useState(true);
@@ -28,7 +29,9 @@ function Navbar() {
   }, [dropDown]);
   return (
     <nav className="flex   justify-between items-center w-">
-      <div className="text-orange-400 font-mulish ~text-lg/2xl">AniWorld!</div>
+      <Link to={"/"} className="text-orange-400 font-mulish ~text-lg/2xl">
+        AniWorld!
+      </Link>
 
       <div className="relative ~max-w-10/screen-md">
         <input

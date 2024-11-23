@@ -3,13 +3,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 function Dropdown({ className, setDropDown }) {
-  console.log(typeof setDropDown);
   const navigate = useNavigate();
   const {
     state: { cart },
     dispatch,
   } = useAnimal();
-  console.log(cart);
+
   return (
     <div
       className={`${className} z-10 sm:min-w-[21rem] w-[300px] flex justify-start px-3 py-[10px]`}
